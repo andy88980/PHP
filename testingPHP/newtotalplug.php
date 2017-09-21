@@ -12,7 +12,7 @@ $first = $_GET["first"];
 $searchstatus2 = mysqli_query($conn ,"UPDATE plug SET voltage = '$plugVoltage',current = '$plugCurrent', S = '$plugS', power = '$plugPower', PF = '$plugPF', now = '$time' where name = '$plugname'"); //修改plug的資訊
 $searchstatus = mysqli_query($conn ,"select status, schedule from plug where name = '$plugname'"); //印出指定plug的status
 $status = mysqli_fetch_row($searchstatus);
-echo "find:".$status[0]." ".$status[1];
+echo $status[0]." ".$status[1];
 if($first == 1){
 	$update_first = mysqli_query($conn,"update plug set updated_at = '$time', updating = '$time', count = '0', total = '0' where name = '$plugname'"); //記錄初次上傳時間
 }
